@@ -1,17 +1,12 @@
 'use server'
 import { signIn, signOut } from "@/auth";
-import { redirect } from "next/navigation";
 
 export const loginGoogle = async () => {
-    await signIn("google");
-
-    redirect('/dashboard/home')
+    await signIn("google",{redirectTo: '/dashboard/home'});
 }
 
 export const loginGithub = async () => {
-    await signIn("github");
-    
-    redirect('/dashboard/home')
+    await signIn("github",{redirectTo: '/dashboard/home'});
 }
 
 export const logout = async () => {
